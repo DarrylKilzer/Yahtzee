@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YahtzeeScorer\YahtzeeScorer.csproj" />
+  </ItemGroup>
+
 </Project>
