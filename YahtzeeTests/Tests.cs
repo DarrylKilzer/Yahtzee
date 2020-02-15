@@ -7,7 +7,7 @@ namespace YahtzeeTests
     public class Tests
     {
         [Fact]
-        public void Score_By_Number_Returns_30_Given_Five_Sixes()
+       public void Score_By_Number_Returns_30_Given_Five_Sixes()
         {
             Scorer scorer = new Scorer();
             int[] dice = new int[] { 6, 6, 6, 6, 6 };
@@ -27,10 +27,10 @@ namespace YahtzeeTests
         }
 
         [Theory]
-        [InlineData(new int[] { 6, 6, 6, 6, 6 }, 4, 0)]
-        [InlineData(new int[] { 6, 6, 6, 6, 6 }, 6, 30)]
-        [InlineData(new int[] { 6, 6, 6, 6, 5 }, 6, 24)]
-        [InlineData(new int[] { 6, 6, 6, 6 }, 6, 0)]
+        [InlineData(new int[] { 6,6,6,6,6}, 4, 0)]
+        [InlineData(new int[] { 6,6,6,6,6}, 6, 30)]
+        [InlineData(new int[] { 6,6,6,6,5}, 6, 24)]
+        [InlineData(new int[] { 6,6,6,6}, 6, 0)]
         public void Score_By_Number(int[] dice, int chosenNum, int expectedScore)
         {
             Scorer scorer = new Scorer();

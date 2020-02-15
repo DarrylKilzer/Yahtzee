@@ -5,10 +5,27 @@ namespace YahtzeeScorer
 {
     public class Scorer
     {
+
+        //public int ScoreByNumber(int[] dice, int chosenNum)
+        //{
+        //    int sum = 0;
+
+        //    foreach(int die in dice)
+        //    {
+        //        if(die == chosenNum)
+        //        {
+        //            sum += die;
+        //        }
+        //    }
+
+        //    return dice.Length == 5 ? sum : 0;
+        //}
+
+
         public int ScoreByNumber(int[] dice, int chosenNumber)
         {
-            return dice.Sum(n => n == chosenNumber ? n : 0);
-            // return (from die in dice where die == chosenNumber select die).Sum();
+            //return dice.Length == 5 ? dice.Sum(n => n == chosenNumber ? n : 0) : 0;
+            return dice.Length == 5 ? (from die in dice where die == chosenNumber select die).Sum() : 0;
         }
 
         public int ScoreByHighestPair(int[] dice)
@@ -53,5 +70,6 @@ namespace YahtzeeScorer
         {
             return dice.Count() == 5 ? dice.GroupBy(n => n).Count() < 2 ? 50 : 0 : 0;
         }
+
     }
 }
