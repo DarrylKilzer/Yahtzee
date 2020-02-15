@@ -6,6 +6,38 @@ namespace YahtzeeTests
 {
     public class Tests
     {
+        [Fact]
+        public void Score_By_Number_Returns_30_Given_Five_Sixes()
+        {
+            Scorer scorer = new Scorer();
+            int[] dice = new int[] { 6, 6, 6, 6, 6 };
+            int expectedScore = 30;
+            int actualScore = scorer.ScoreByNumber(dice, 6);
+            Assert.Equal(expectedScore, actualScore);
+        }
+
+        [Fact]
+        public void Score_By_Number_Returns_0_Given_Four_Dice()
+        {
+            Scorer scorer = new Scorer();
+            int[] dice = new int[] { 4, 5, 6, 1 };
+            int expectedScore = 0;
+            int actualScore = scorer.ScoreByNumber(dice, 6);
+            Assert.Equal(expectedScore, actualScore);
+        }
+
+        [Theory]
+        [InlineData(new int[] { 6, 6, 6, 6, 6 }, 4, 0)]
+        [InlineData(new int[] { 6, 6, 6, 6, 6 }, 6, 30)]
+        [InlineData(new int[] { 6, 6, 6, 6, 5 }, 6, 24)]
+        [InlineData(new int[] { 6, 6, 6, 6 }, 6, 0)]
+        public void Score_By_Number(int[] dice, int chosenNum, int expectedScore)
+        {
+            Scorer scorer = new Scorer();
+            int actualScore = scorer.ScoreByNumber(dice, chosenNum);
+            Assert.Equal(expectedScore, actualScore);
+        }
+
         [Theory]
         [InlineData(new int[] { 1, 2, 3, 4, 5 }, 5, 5)]
         [InlineData(new int[] { 5, 2, 3, 4, 5 }, 5, 10)]
